@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: user-service
+
+
+server:
+  port: 9001
+logging:
+  level:
+    org.springframework.security: INFO
+    com.nuwatech: DEBUG
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+spring.jackson.serialization.write_dates_as_timestamps: false
+
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    #租期到期时间间隔（秒）
+    leaseRenewalIntervalInSeconds: 10
+    #租期到期时间（秒）
+    leaseExpirationDurationInSeconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8501/eureka/,http://peer1:8502/eureka/,http://peer1:8503/eureka/

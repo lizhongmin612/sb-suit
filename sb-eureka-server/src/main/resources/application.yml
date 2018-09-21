@@ -7,4 +7,8 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
   server:
-    enableSelfPreservation: true
+    #enableSelfPreservation: true
+    #开发环境关闭自我保护，实现CP
+    enableSelfPreservation: false
+    #清理时间间隔
+    evictionIntervalTimerInMs: 4000
